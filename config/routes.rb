@@ -1,4 +1,7 @@
 OneWayAir::Application.routes.draw do
+  resources :reservations
+
+
   resources :users
 
 
