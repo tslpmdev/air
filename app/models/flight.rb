@@ -17,4 +17,13 @@ class Flight < ActiveRecord::Base
       return 338
     end
   end
+
+  def duration_in_minutes
+    return (self.miles/8.0).to_i
+  end
+
+  def arrives_at
+    return self.departs_at + (self.duration_in_minutes * 60)
+  end
+
 end
