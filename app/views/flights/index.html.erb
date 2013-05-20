@@ -23,10 +23,10 @@
               <tr>
                 <td><%= flight.flight_num %></td>
                 <td><%= flight.departure_airport %></td>
-                <td><%= flight.departs_at %></td>
+                <td><%= flight.departs_at.strftime "%l:%M %p" %></td>
                 <td><%= flight.arrival_airport %></td>
                 <td>TODO: arrives at</td>
-                <td><%= flight.distance %></td>
+                <td><%= flight.miles %></td>
                 <td>TODO: duration</td>
                 <td><%= flight.seats %></td>
                 <td><a class="btn btn-success">Book Now</a></td>
