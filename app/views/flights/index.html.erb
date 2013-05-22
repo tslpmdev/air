@@ -22,9 +22,9 @@
             <% @flights.each do |flight| %>
               <tr>
                 <td><%= flight.flight_num %></td>
-                <td><%= flight.departure_airport %></td>
+                <td><%= flight.departure_airport.code %></td>
                 <td><%= flight.departs_at.strftime "%l:%M %p" %></td>
-                <td><%= flight.arrival_airport %></td>
+                <td><%= flight.arrival_airport.code  %></td>
                 <td><%= flight.arrives_at.strftime "%l:%M %p" %></td>
                 <td><%= flight.miles %></td>
                 <td><%= flight.duration_in_minutes %> minutes</td>
