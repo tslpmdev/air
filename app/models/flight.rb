@@ -17,7 +17,7 @@ class Flight < ActiveRecord::Base
   # Refactor this model to use the Airport model instead of strings in the arrival_airport and departure_airport columns
 
 
-
+  # refactor to accommodate both to/from routes
   def miles
     if departure_airport == 'ORD' && arrival_airport == 'JFK'
       return 740

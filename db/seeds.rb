@@ -6,23 +6,25 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Flight.destroy_all
+Airport.destroy_all
 
-possible_flight_paths = [ ['ORD', 'JFK'],
-                          ['ORD', 'LAX'],
-                          ['ORD', 'SFO'],
-                          ['JFK', 'LAX'],
-                          ['JFK', 'SFO'],
-                          ['LAX', 'SFO'] ]
+airports = Airport.create([ { city: "Chicago", code: 'ORD'},
+                            { city: "Los Angeles", code: 'LAX'},
+                            { city: "San Francisco", code: 'SFO'},
+                            { city: 'New York', code: 'JFK'}  ])
+
+puts "#{airports.count} airports created"
+
+Flight.destroy_all
 
 flight_number_array = (100..999).to_a
 flight_number_array.shuffle!
 100.times do
-  flight_path = possible_flight_paths.sample
+  two_airports = airports.sample(2)
   Flight.create(  flight_num: flight_number_array.pop,
-                  departure_airport: flight_path[0],
+                  departure_airport_id: two_airports[0].id,
                   departs_at: Time.parse("#{rand(12)+1}:00"),
-                  arrival_airport: flight_path[1],
+                  arrival_airport_id: two_airports[1].id,
                   seats: 85 )
 end
 
