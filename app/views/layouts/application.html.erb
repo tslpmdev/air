@@ -55,7 +55,13 @@
             <li><a href="/airports.html">Cities</a></li>
             <li><a href="/support.html">Customer Support</a></li>
             <li><a href="/profile.html">My Profile</a></li>
-            <li><a href="#about">Logout</a></li>
+            <li>
+              <% if session[:user_id].present? %>
+                <%= link_to "Logout", sessions_url, method: 'delete' %>
+              <% else %>
+                <%= link_to "Sign In", new_session_url %>
+              <% end %>
+            </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
