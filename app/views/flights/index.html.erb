@@ -30,8 +30,8 @@
                 <td><%= flight.duration_in_minutes %> minutes</td>
                 <td><%= flight.seats %></td>
                 <td>
-                  <a href="/reservations/new?flight_id=5" class="btn btn-success">Book Now</a>
-                  <%= link_to "Book Now", new_reservation_url({ flight_id: 5 }), class: 'btn btn-success' %>
+                  <!-- <a href="/reservations/new?flight_id=5" class="btn btn-success">Book Now</a> -->
+                  <%= link_to "Book Now", new_reservation_url({ flight_id: flight.id }), class: 'btn btn-success' %>
                 </td>
               </tr>
             <% end %>
