@@ -1,5 +1,22 @@
 class Flight < ActiveRecord::Base
-  attr_accessible :arrival_airport, :departs_at, :departure_airport, :distance, :flight_num, :seats
+  attr_accessible :arrival_airport_id, :departs_at, :departure_airport_id, :distance, :flight_num, :seats
+
+
+  belongs_to :arrival_airport, class_name: 'airport', foreign_key: 'arrival_airport_id'
+  # def arrival_airport
+  #   Airport.find_by_id(self.arrival_airport_id)
+  # end
+
+  belongs_to :departure_airport, class_name: 'airport', foreign_key: 'departure_airport_id'
+  # def departure_airport
+  #   Airport.find_by_id(self.departure_airport_id)
+  # end
+
+
+
+  # Refactor this model to use the Airport model instead of strings in the arrival_airport and departure_airport columns
+
+
 
   def miles
     if departure_airport == 'ORD' && arrival_airport == 'JFK'
