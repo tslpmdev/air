@@ -3,8 +3,12 @@ class FlightsController < ApplicationController
   # GET /flights.json
   def index
     if params[:search]
-      airport = Airport.find_by_code(params[:search].upcase)
-      @flights = Flight.where("arrival_airport_id == ? OR departure_airport_id == ?", "#{airport.id}", "#{airport.id}")
+      airport = Airport.where("code LIKE ? OR city LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%").first
+      if airport
+        @flights = Flight.where("arrival_airport_id == ? OR departure_airport_id == ? ", "#{airport.id}", "#{airport.id}")
+      else
+        @flights = Flight.all
+      end
     else
       @flights = Flight.all
     end

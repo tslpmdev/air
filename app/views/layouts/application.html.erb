@@ -49,8 +49,8 @@
         <a class="brand span2" href="/">OneWay Airlines</a>
         <div class="nav-collapse">
           <!-- <form class="navbar-search pull-left" action="/flights"> -->
-          <%= form_tag('/flights', class: 'navbar-search pull-left', method: 'get') do %>
-            <%= text_field_tag :search, "Search by city or airport code", class: 'search-query span3'  %>
+          <%= form_tag(flights_url, class: 'navbar-search pull-left', method: 'get') do %>
+            <%= text_field_tag :search, nil, placeholder: "Search by city or airport code", class: 'search-query span3'  %>
             <!-- <input type="text" class="search-query span3" placeholder="Search by city or airport code"> -->
           <% end %>
           <!-- </form> -->
