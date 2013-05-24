@@ -4,6 +4,8 @@ OneWayAir::Application.routes.draw do
   post '/sessions' => 'Sessions#create', as: 'sessions'
   delete '/sessions' => 'Sessions#destroy'
 
+  post '/flights/search' => 'flights#index'
+
   resources :airports
 
 

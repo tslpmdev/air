@@ -2,7 +2,12 @@ class FlightsController < ApplicationController
   # GET /flights
   # GET /flights.json
   def index
-    @flights = Flight.all
+    if params[:search]
+      airport = Airport.find_by_code(params[:search].upcase)
+      @flights = Flight.where("arrival_airport_id == ? OR departure_airport_id == ?", "#{airport.id}", "#{airport.id}")
+    else
+      @flights = Flight.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
