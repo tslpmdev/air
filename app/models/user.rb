@@ -16,3 +16,8 @@ class User < ActiveRecord::Base
     # miles_array.inject {|sum, miles| sum + miles}
   end
 end
+
+
+
+
+

@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
     if u.present? && u.authenticate(params[:password])
       session[:user_id] = u.id
-      redirect_to flights_url, notice: 'Signed in successfully.'
+      redirect_to u, notice: 'Signed in successfully.'
     else
       redirect_to new_session_url, notice: "Try again."
     end
