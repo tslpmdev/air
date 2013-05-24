@@ -11,6 +11,7 @@ class Flight < ActiveRecord::Base
   # def departure_airport
   #   Airport.find_by_id(self.departure_airport_id)
   # end
+  has_many :reservations
 
 
 
